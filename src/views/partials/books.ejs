@@ -11,12 +11,12 @@
 
     <% books.forEach(function (book) { %>
       <div class="container__book">
-        <a href="#" class="link__book">
+        <a href="<%= book.frabl %>" class="link__book">
           <div class="holder">
-            <img src="" alt="book cover">
-            <h3 class="title"></h3>
-            <p class="author"></p>
-            <p class="year"></p>
+            <img src="<%= book.cover %>" alt="book cover">
+            <h3 class="title"><%= book.title %></h3>
+            <p class="author"><%= book.author %></p>
+            <p class="year"><%= book.year %></p>
           </div>
         </a>
       </div>

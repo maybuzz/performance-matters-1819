@@ -95,7 +95,6 @@ img {
 .container__books, .container__courses {
   grid-area: books;
   display: grid;
-  grid-template-columns: repeat(4, 25%);
   width: 97.5%;
   overflow: hidden;
   height: 40vh;

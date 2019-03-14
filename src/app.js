@@ -1,143 +1,83 @@
 'use strict'
 
-const express = require('express')
-const root = express()
-
+const fs = require('fs')
 const ejs = require('ejs')
+const express = require('express')
+const app = express()
 
-root
+app
   .use(express.static('static'))
   .set('view engine', 'ejs')
   .set('views', 'views')
   .get('/', index)
   .get('/books', overviewBooks)
-  .get('/book', detailBook)
+  .get('/:frabl', detailBook)
   .get('/courses', overviewCourses)
-  .get('/course')
+  .get('/courses/:frabl', detailCourse)
   .listen(3333)
 
 function index(req, res) {
+  fs.readFile('static/data/bookData.json', 'utf8', (err, books) => {
+    if (err) {
+      console.log('i fail')
+      console.error(err)
+      return
+    }
+    try {
+      console.log('i try')
+      const data = JSON.parse(books)
+      console.log(data);
+
+      res.render('main.ejs', {
+        page: 0,
+        books: data
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  })
+
+}
+
+function overviewBooks(req, res) {
+
   res.render('main.ejs', {
     page: 0
   })
 }
 
-function getBooks(req, res) {
-  const booksBtn = document.getElementById('booksBtn')
-  booksBtn.onclick = app.initBooks
-  res.render('main.ejs', {
-    page: 0
+function overviewCourses(req, res) {
+  fs.readFile('static/data/courseData.json', 'utf8', (err, courses) => {
+    if (err) {
+      console.log('i fail')
+      console.error(err)
+      return
+    }
+    try {
+      console.log('i try')
+      const data = JSON.parse(courses)
+
+      res.render('main.ejs', {
+        page: 0,
+        courses: data
+      })
+    } catch (err) {
+      console.error(err)
+    }
   })
 }
 
-function getCourses(req, res) {
-  const courseBtn = document.getElementById('courseBtn')
-  res.render('main.ejs', {
-    page: 1
+function detailBook(req, res) {
+  console.log("detail book")
+  const data = fs.readFile('static/data/bookData.json')
+  console.log(req.params)
+
+  res.render('book.ejs', {
+    page: 0,
+    book: data
   })
 }
 
-const app = {
-  init: () => {
-    const booksBtn = document.getElementById('booksBtn')
-    const courseBtn = document.getElementById('courseBtn')
+function detailCourse(req, res) {
 
-    booksBtn.onclick = app.initBooks
-    courseBtn.onclick = app.initCourses
-
-    api.getBooks()
-  },
-  initBooks: () => {
-    clear.clearCourses()
-    clear.clearBooks()
-    api.getBooks()
-  },
-  initCourses: () => {
-    clear.clearCourses()
-    clear.clearBooks()
-    api.getCourse()
-  }
-}
-
-const api = {
-  getBooks: async () => {
-    if (localStorage.getItem('books')) {
-      render.onload()
-      return render.listBooks()
-    }
-
-    render.onload()
-
-    const oba = new API()
-    const bookStream = await oba.createStream("search/for+dummies&facet=type(book)&facet=language(dut)&librarian=true{50}")
-
-    bookStream
-      .pipe(data.formatBooks)
-      .pipe(render.listBooks)
-  },
-  getCourse: async () => {
-    if (localStorage.getItem('courses')) {
-      return render.listCourse()
-    }
-    render.onload()
-    const oba = new API()
-    const courseStream = await oba.createStream("search/*&facet=type(Cursus)&librarian=true{100}")
-    courseStream
-      .pipe(data.formatCourse)
-      .pipe(render.listCourse)
-
-    }
-}
-
-const data = {
-  formatBooks: (bookStream) => {
-    console.log("bookStream", bookStream)
-    const allBooks = []
-    const allData = bookStream.map((book) => {
-
-      const data = {
-        title: book.titles.title._attributes['search-term'].split('voor')[0].trim(),
-        cover: book.coverimages.coverimage[0] ? book.coverimages.coverimage[0]._text : 'https://v19.nbc.bibliotheek.nl/thumbnail?uri=http://data.bibliotheek.nl/ggc/ppn/417724462&token=c1322402',
-        author: book.authors ? book.authors['main-author']._attributes['search-term'] : 'onbekend',
-        summary: book.summaries ? book.summaries.summary._text : 'onbekend.',
-        year: book.publication.year['_text']
-      }
-
-      allBooks.push(data)
-
-      return data
-
-    })
-    window.localStorage.setItem('books',JSON.stringify(allBooks))
-  },
-  formatCourse: (courseStream) => {
-    console.log("stream", courseStream)
-    const allCourses = []
-    const allData = courseStream.map((course) => {
-
-      const data = {
-        title: course.titles.title
-          ? (course.titles.title.length > 0
-            ? course.titles.title[0]._text
-            : course.titles.title._text)
-          : course.titles['short-title']._text.split(':')[0].trim(),
-        cover: course.coverimages.coverimage
-          ? (course.coverimages.coverimage.length > 0
-            ? (course.coverimages.coverimage[1]
-              ? course.coverimages.coverimage[1]._text
-              : course.coverimages.coverimage[0]._text)
-            : course.coverimages.coverimage._text)
-          : 'https://v19.nbc.bibliotheek.nl/thumbnail?uri=http://data.bibliotheek.nl/ggc/ppn/417724462&token=c1322402',
-        summary: course.summaries ? course.summaries.summary._text : 'Excuses, er is geen verdere informatie te vinden.',
-        link: course.eresources ? course.eresources.eresource._attributes.url : 'geen website'
-      }
-
-      allCourses.push(data)
-
-      return data
-
-    })
-
-    window.localStorage.setItem('courses',JSON.stringify(allCourses))
-  }
 }

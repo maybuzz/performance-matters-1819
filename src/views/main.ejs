@@ -9,15 +9,19 @@
 
     <% include partials/header.ejs %>
 
-    <% include partials/loading.ejs %>
+    <% if (page == 0){ %>
+      <% include partials/books.ejs %>
+
+    <% } else if (page == 1) { %>
+      <% include partials/courses.ejs %>
+
+    <% } else { %>
+      <% include partials/loading.ejs %>
+    <% } %>
 
   </main>
 
   <% include partials/tail.ejs %>
-
-  <script type="text/javascript">
-
-  </script>
 
 </body>
 </html>
