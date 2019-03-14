@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Roboto');
+
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Chelsea+Market|Finger+Paint');
+
+/* colors */
+:root {
+  --color-text: #002B37;
+	--color-text-default: #48656E;
+  --color-text-special: #C23EE6;
+  --color-backgr-default: #FFFFFF;
+  --color-backgr-special: #ddd;
+}
+
+/* general */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--color-backgr-default);
+  padding: .7rem;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+  color: var(--color-text);
+}
+
+main {
+  background-color: var(--color-backgr-special);
+  padding: .5rem;
+  height: 90vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+  "header header header header"
+  "books books books books";
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+}
+
+/* text */
+h1, h2 {
+  font-family: 'Cabin Sketch', sans-serif;
+  margin: .5rem;
+  letter-spacing: .08rem;
+}
+
+h1 {
+  font-size: 5rem;
+  transition: font-size .2s ease-out;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+p, a {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+p {
+  margin: .5rem;
+}
+
+header {
+  grid-area: nav;
+}
+
+img {
+  margin-bottom: .3rem;
+  margin-top: 1rem;
+}
+
+.container__book:hover img, .container__course:hover img {
+  box-shadow: -10px -8px 20px -4px rgba(148,148,148,1);
+}
+
+.container__header {
+  grid-area: header;
+  width: 80%;
+  margin-bottom: 5rem;
+}
+
+/* general */
+.container__books, .container__courses {
+  grid-area: books;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  width: 97.5%;
+  overflow: hidden;
+  height: 40vh;
+}
+
+.container__books__side, .container__courses__side {
+  grid-column: span 1;
+  max-width: 95%;
+}
+
+.container__book, .container__course {
+  grid-column: span 1;
+  text-align: center;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+
+.container__course, .holderCourse img {
+  width: 100%;
+}
+
+.holder img {
+  width: 7vw;
+}
+
+.summary, .author, .year, .summary__course, .container__course .btn {
+  display: none;
+}
+
+.container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn{
+  display: block;
+  font-size: .8rem;
+  text-align: center;
+}
+
+#container__books-parent, #container__courses-parent {
+  grid-column: span 3;
+  position: relative;
+  width: 98%;
+}
+
+#container__books-parent::after, #container__courses-parent::after, #container__books-parent::before, #container__courses-parent::before {
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: 15%;
+  background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
+}
+
+#container__books-parent::before, #container__courses-parent::before {
+  left: -1px;
+  right: auto;
+  transform: rotate(180deg);
+  width: 20%;
+}
+
+/* books */
+.container__books__side p {
+  margin-bottom: 2rem;
+}
+
+.container__books__content {
+  grid-column: span 3;
+  display: flex;
+  text-align: center;
+  width: 97%;
+  overflow: scroll;
+  position: relative;
+  padding-left: 7.5rem;
+}
+
+.container__book .holder {
+  width: 100%;
+}
+
+.link__book, .link__course {
+  display: grid;
+  width: 7.5em;
+}
+.link__course {
+  width: 10rem;
+}
+
+.container__books__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* courses */
+.container__courses__content {
+  grid-column: span 3;
+  display: flex;
+  grid-gap: .8rem;
+  text-align: center;
+  overflow: scroll;
+  width: 97%;
+  padding-left: 7.5rem;
+}
+
+.container__courses__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* header, menu, footer */
+.menu li {
+  display: inline;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+}
+
+.footer li {
+  float: right;
+  margin: 2rem .5rem;
+}
+
+.footer li:first-of-type {
+  float: left;
+}
+
+/* styles */
+
+.btn {
+  margin: .5rem;
+  padding: .35rem 1rem;
+  display: inline-block;
+  color: var(--color-text-default);
+  border: 2px solid var(--color-text-default);  border-radius: 25px;
+  text-align: center;
+}
+
+.btn__lang {
+  display: block;
+  text-align: center;
+}
+
+a:hover, a:focus, .btn:hover, .btn:focus {
+  color: var(--color-text-special);
+  border-color: var(--color-text-special);
+}
+
+.container__books__side .btn {
+  margin-top: 5%;
+}
+
+/* letters */
+/* title */
+.v:hover, .r:hover {
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.o:hover, .u:hover {
+  transform: rotateX(-45deg);
+  display: inline-block;
+}
+
+.i:hover {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+.oo:hover, .m:hover, .e:hover {
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.d:hover, .mm:hover, .s:hover {
+  transform: rotateY(-60deg);
+  display: inline-block;
+}
+
+/* bibliotheek */
+.b:hover, .ii:hover, .l:hover, .iii:hover, .ooo:hover, .t:hover, .h:hover, .ee:hover, .eee:hover, .k:hover {
+  transform: rotateY(-60deg);
+  display: inline-block;
+}
+
+/* curcussen */
+.c:hover, .uu:hover, .rr:hover, .ss:hover, .uuu:hover, .sss:hover, .ssss:hover, .eeee:hover, .n:hover {
+  transform: rotateY(-60deg);
+  display: inline-block;
+}
+
+/* loading state */
+#spinner {
+  grid-column: span 4;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-backgr-default);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0.0)
+  } 50% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bounce {
+ 0%, 100% {
+   transform: scale(0.0);
+   -webkit-transform: scale(0.0);
+ } 50% {
+   transform: scale(1.0);
+   -webkit-transform: scale(1.0);
+ }
+}
+
+/* queries */
+@media (max-width: 58em) {
+  main {
+    grid-template-areas:
+    "header header header"
+    "books books books";
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 4rem;
+    transition: font-size .2s ease-out;
+  }
+
+  #container__books-parent, #container__courses-parent {
+    position: relative;
+    width: 90%;
+  }
+
+  #container__books-parent::after, #container__courses-parent::after, #container__books-parent::before, #container__courses-parent::before {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 1px;
+    bottom: 0;
+    width: 5%;
+    background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
+  }
+
+  #container__books-parent::before, #container__courses-parent::before {
+    left: -1px;
+    right: auto;
+    transform: rotate(180deg);
+    width: 5%;
+  }
+
+  .container__header {
+    margin-bottom: 2.5rem;
+  }
+
+  .container__books, .container__courses {
+    grid-area: books;
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .container__books__content, .container__courses__content {
+    grid-column: span 2;
+    display: flex ;
+    position: relative;
+    padding-left: 3rem;
+    overflow: scroll;
+
+  }
+
+  .container__book {
+    display: grid;
+    grid-template-columns: 1fr, 2fr;
+    grid-row: auto;
+  }
+
+  .holder img {
+    grid-column: span 1;
+  }
+
+  .container__books__side, .container__courses__side {
+    width: 85%;
+  }
+
+  /* letters */
+  /* title */
+  .v:hover, .r:hover, .o:hover, .u:hover, .i:hover, .oo:hover, .m:hover, .e:hover, .d:hover, .mm:hover, .s:hover {
+    transform: none;
+    display: inline;
+  }
+
+  /* bibliotheek */
+  .b:hover, .ii:hover, .l:hover, .iii:hover, .ooo:hover, .t:hover, .h:hover, .ee:hover, .eee:hover, .k:hover {
+    transform: none;
+    display: inline;
+  }
+
+  /* curcussen */
+  .c:hover, .uu:hover, .rr:hover, .ss:hover, .uuu:hover, .sss:hover, .ssss:hover, .eeee:hover, .n:hover {
+    transform: none;
+    display: inline;
+  }
+
+  .container__book:hover img, .container__course:hover img {
+    box-shadow: 0;
+  }
+
+  .summary, .author, .year, .summary__course, .container__course .btn {
+    display: inline-block;
+    font-size: .8rem;
+    text-align: left;
+
+  }
+
+  .container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn{
+    display: inline-block;
+    font-size: .8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 38em) {
+  main {
+    grid-template-areas:
+    "nav"
+    "header"
+    "books";
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: auto;
+  }
+
+  h1 {
+    font-size: 3rem;
+    transition: font-size .2s ease-out;
+  }
+
+  .btn__lang {
+    display: inline-block;
+  }
+
+  .container__books, .container__courses {
+    grid-area: books;
+    display: grid;
+    grid-template-columns: 92.5vw;
+  }
+
+  .container__books__side, .container__courses__side {
+    width: 90%;
+  }
+
+  .container__books__content, .container__courses__content {
+    grid-template-columns: 90vw;
+  }
+
+  .container__book, .container__course {
+    grid-column: span 1;
+  }
+
+  .link__book {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .link__book img {
+    grid-column: 20vw;
+  }
+
+  .link__book h3 {
+    text-align: left;
+  }
+
+}

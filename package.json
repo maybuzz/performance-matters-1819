@@ -1,0 +1,29 @@
+{
+  "name": "performance-matters",
+  "version": "1.0.0",
+  "description": "In dit vak gaan we de eerder bij de OBA gemaakte client side web applicatie ombouwen naar een server side gerenderde applicatie. Verder gaan we een reeks van optimalisaties doorvoeren om de performance van de applicatie te verbeteren. Uiteindelijk zorgen we ervoor dat de applicatie offline beschikbaar.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maybuzz/performance-matters-1819.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maybuzz/performance-matters-1819/issues"
+  },
+  "homepage": "https://github.com/maybuzz/performance-matters-1819#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "node": "^11.11.0",
+    "nodemon": "^1.18.10",
+    "oba-wrapper": "github:maanlamp/OBA-wrapper"
+  }
+}

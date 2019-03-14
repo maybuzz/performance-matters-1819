@@ -1,0 +1,28 @@
+<div id="container__books" class="container container__books">
+
+  <div class="container__books__side">
+    <h1><span class="v">B</span><span class="o">i</span><span class="oo">b</span><span class="r">l</span><span class="d">i</span><span class="u">o</span><span class="m">t</span><span class="mm">h</span><span class="i">e</span><span class="e">e</span><span class="s">k</span></h1>
+
+    <p>Hier vindt u alle "voor dummies" boeken binnen de oba.</p>
+  </div>
+
+  <div class="container__books-parent">
+    <div class="container__books__content">
+
+    <% books.forEach(function (book) { %>
+      <div class="container__book">
+        <a href="#" class="link__book">
+          <div class="holder">
+            <img src="" alt="book cover">
+            <h3 class="title"></h3>
+            <p class="author"></p>
+            <p class="year"></p>
+          </div>
+        </a>
+      </div>
+    <% }) %>
+
+    </div>
+  </div>
+
+</div>
