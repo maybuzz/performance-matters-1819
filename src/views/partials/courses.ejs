@@ -10,15 +10,17 @@
   <div class="container__courses-parent">
     <div class="container__courses__content">
 
-      <div class="container__course">
-        <a href="#" class="link__course">
-          <div class="holderCourse">
-            <img src="" alt="course cover">
-            <h3 class="title"></h3>
-            <a href="#" class="btn">naar de website</a>
-          </div>
-        </a>
-      </div>
+      <% courses.forEach(function (course) { %>
+        <div class="container__course">
+          <a href="<%= course.frabl %>" class="link__course">
+            <div class="holderCourse">
+              <img src="<%= course.cover %>" alt="course cover">
+              <h3 class="title"><%= course.title %></h3>
+              <a href="<%= course.link %>" class="btn">naar de website</a>
+            </div>
+          </a>
+        </div>
+      <% }) %>
 
     </div>
   </div>

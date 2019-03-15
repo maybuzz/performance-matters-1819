@@ -9,10 +9,10 @@
 
     <% include partials/header.ejs %>
 
-    <% if (page == 0){ %>
+    <% if (page === 0){ %>
       <% include partials/books.ejs %>
 
-    <% } else if (page == 1) { %>
+    <% } else if (page === 1) { %>
       <% include partials/courses.ejs %>
 
     <% } else { %>

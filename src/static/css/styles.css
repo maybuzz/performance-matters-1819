@@ -88,7 +88,7 @@ img {
 .container__header {
   grid-area: header;
   width: 80%;
-  margin-bottom: 5rem;
+  height: 5vh;
 }
 
 /* general */
@@ -97,7 +97,6 @@ img {
   display: grid;
   width: 97.5%;
   overflow: hidden;
-  height: 40vh;
 }
 
 .container__books__side, .container__courses__side {
@@ -110,6 +109,7 @@ img {
   text-align: center;
   margin: 0;
   padding: 0 1.5rem;
+  height: 100%;
 }
 
 .container__course, .holderCourse img {
