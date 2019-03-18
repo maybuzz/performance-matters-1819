@@ -155,7 +155,13 @@ a:hover, a:focus, .btn:hover, .btn:focus {
   height: 100%;
 }
 
-.container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn{
+.container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn {
+  display: block;
+  font-size: .8rem;
+  text-align: center;
+}
+
+.container__book:focus .summary, .container__book:focus .author, .container__book:focus .year, .container__course:focus .summary__course, .container__course:focus .btn {
   display: block;
   font-size: .8rem;
   text-align: center;
@@ -184,10 +190,11 @@ a:hover, a:focus, .btn:hover, .btn:focus {
   grid-column: span 4;
   display: flex;
   text-align: center;
-  width: 97%;
+  width: 99%;
   overflow: scroll;
   position: relative;
   padding-left: 7.5rem;
+  margin-top: 3rem;
 }
 
 .container__book .holder {
@@ -210,8 +217,9 @@ a:hover, a:focus, .btn:hover, .btn:focus {
   grid-gap: .8rem;
   text-align: center;
   overflow: scroll;
-  width: 97%;
+  width: 100%;
   padding-left: 7.5rem;
+  margin-top: 3rem;
 }
 
 .link__course {
@@ -219,14 +227,14 @@ a:hover, a:focus, .btn:hover, .btn:focus {
 }
 
 /* styles */
-.container__book:hover img, .container__course:hover img {
+.container__book:hover img, .container__book:focus img, .container__course:hover img, .container__course:focus img {
   box-shadow: -10px -8px 20px -4px rgba(148,148,148,1);
 }
 
 .container__books-parent, .container__courses-parent {
   grid-column: span 3;
   position: relative;
-  width: 98%;
+  width: 98.5%;
 }
 
 .container__books-parent::after, .container__courses-parent::after, .container__books-parent::before, .container__courses-parent::before {
@@ -236,7 +244,7 @@ a:hover, a:focus, .btn:hover, .btn:focus {
   top: 0;
   right: -1px;
   bottom: 0;
-  width: 3%;
+  width: 13%;
   background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
 }
 
