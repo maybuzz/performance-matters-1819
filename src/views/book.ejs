@@ -9,17 +9,17 @@
 
     <section class="detailBook">
       <ul class="menu menu__btn">
-        <li><a href="#" class="btn">terug</a></li>
-        <li><a href="#" class="btn">volgende</a></li>
+        <li><a href="/" class="btn">terug</a></li>
       </ul>
       <div class="left holder">
-        <img src="" alt="book cover">
-        <a href="#" class="btn">naar de website</a>
+        <img src="<%= book[0].cover %>" alt="book cover">
       </div>
       <div class="right content">
-        <h2 class="title"></h2>
-        <p class="author"></p>
-        <p class="summary"></p>
+        <h2 class="title"><%= book[0].title %></h2>
+        <p class="author"><%= book[0].author %></p>
+        <p class="year"><%= book[0].year %></p>
+        <p class="summary"><%= book[0].summary %></p>
+        <p class="descr"><%= book[0].descr %></p>
       </div>
     </section>
 

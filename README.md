@@ -7,6 +7,7 @@
 ## Table of contents
 1. [Live demo](#Live-demo)
 2. [Install](#Install)
+3. [Features](#Features)
 3. [Performance](#Performance)
 8. [To-do](#To-do)
 9. [Resources](#Resources)
@@ -14,19 +15,23 @@
 ## Live demo
 [Click here](https://maybuzz.github.io/...) to see my live demo.
 
-## Install
-
+To install this project you'll have to fork this repository and open your terminal
 ```bash
-  # Open your terminal and insert this link to clone this repo to your device
-  git clone https://github.com/your-user-name/
+  # insert your username to this link
+  # put this in your terminal to clone the repo
+  git clone https://github.com/your-user-name/.../
 ```
+
+## Features
+
+## Performance
+
+## Enhancements
 
 ## To-do
 - [x] `Express` `nodejs` server   
 - [x] `.ejs` templating   
 - [x] Serve data with json file   
-- [ ] Node wrapper   
-- [ ] Merge this browser-tech shizzle (progressive enhancement)   
 - [ ] `Client side` vs `Server side` performance check   
 -
 

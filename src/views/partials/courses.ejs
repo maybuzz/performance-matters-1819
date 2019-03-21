@@ -1,9 +1,9 @@
 <div id="container__courses" class="container container__courses">
 
   <div class="container__courses__side">
-    <h1><span class="v">C</span><span class="o">u</span><span class="b">r</span><span class="l">s</span><span class="d">u</span><span class="u">s</span><span class="m">s</span><span class="mm">e</span><span class="i">n</span></h1>
+    <h2 class="container__side__title"><span class="v">C</span><span class="o">u</span><span class="b">r</span><span class="l">s</span><span class="d">u</span><span class="u">s</span><span class="m">s</span><span class="mm">e</span><span class="i">n</span></h2>
 
-    <p>Hier vindt u alle cursussen binnen de oba.</p>
+    <p class="container__side__subtitle">Hier vindt u alle cursussen binnen de oba.</p>
   </div>
 
 
@@ -12,7 +12,7 @@
 
       <% courses.forEach(function (course) { %>
         <div class="container__course">
-          <a href="<%= course.frabl %>" class="link__course">
+          <a href="courses/<%= course.frabl %>" class="link__course">
             <div class="holderCourse">
               <img src="<%= course.cover %>" alt="course cover">
               <h3 class="title"><%= course.title %></h3>

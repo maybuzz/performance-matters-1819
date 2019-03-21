@@ -1,9 +1,9 @@
 <div id="container__books" class="container container__books">
 
   <div class="container__books__side">
-    <h1><span class="b">B</span><span class="ii">i</span><span class="b">b</span><span class="l">l</span><span class="ii">i</span><span class="ooo">o</span><span class="t">t</span><span class="h">h</span><span class="ee">e</span><span class="ee">e</span><span class="k">k</span></h1>
+    <h2 class="container__side__title"><span class="b">B</span><span class="ii">i</span><span class="b">b</span><span class="l">l</span><span class="ii">i</span><span class="ooo">o</span><span class="t">t</span><span class="h">h</span><span class="ee">e</span><span class="ee">e</span><span class="k">k</span></h2>
 
-    <p>Hier vindt u alle "voor dummies" boeken binnen de oba.</p>
+    <p class="container__side__subtitle" >Hier vindt u alle "voor dummies" boeken binnen de oba.</p>
   </div>
 
   <div class="container__books-parent">
@@ -11,7 +11,7 @@
 
     <% books.forEach(function (book) { %>
       <div class="container__book">
-        <a href="<%= book.frabl %>" class="link__book">
+        <a href="books/<%= book.frabl %>" class="link__book">
           <div class="holder">
             <img src="<%= book.cover %>" alt="book cover">
             <h3 class="title"><%= book.title %></h3>

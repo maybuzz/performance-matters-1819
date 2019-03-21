@@ -1,15 +1,27 @@
-<section class="detailCourse">
-  <ul>
-    <li><a href="#" class="btn">terug</a></li>
-    <li><a href="#" class="btn">volgende</a></li>
-  </ul>
-  <div class="left holderCourse">
-    <img src="" alt="course cover">
-  </div>
-  <div class="right content">
-    <h2 class="title"></h2>
-    <p class="author"></p>
-    <p class="year"></p>
-    <p class="summary"></p>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<% include partials/head.ejs %>
+
+<body>
+  <main>
+    <% include partials/header.ejs %>
+
+    <section class="detailCourse">
+      <ul>
+        <li><a href="/" class="btn">terug</a></li>
+      </ul>
+      <div class="left">
+        <img src="<%= course[0].cover %>" alt="course cover">
+        <a href="<%= course[0].link %>" class="btn">naar de website</a>
+      </div>
+      <div class="right content">
+        <h2 class="titleDetail"><%= course[0].title %></h2>
+        <p class="summaryDetail"><%= course[0].summary %></p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

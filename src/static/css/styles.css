@@ -23,15 +23,17 @@ body {
   background-color: var(--color-backgr-default);
   padding: .7rem;
   font-family: 'Roboto', sans-serif;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   color: var(--color-text);
+  overflow: hidden;
 }
 
 main {
   background-color: var(--color-backgr-special);
+  overflow: hidden;
   padding: .5rem;
-  height: 90vh;
+  height: 100%;
   width: 100%;
   display: grid;
   grid-template-areas:
@@ -40,6 +42,11 @@ main {
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: auto;
   grid-gap: 1rem;
+}
+
+img {
+  margin-bottom: .3rem;
+  margin-top: 1rem;
 }
 
 /* text */
@@ -54,8 +61,9 @@ h1 {
   transition: font-size .2s ease-out;
 }
 
-h2 {
+.container__side__title {
   font-size: 3rem;
+  margin-top: 1.25rem;
 }
 
 h3 {
@@ -72,132 +80,29 @@ p {
   margin: .5rem;
 }
 
-header {
-  grid-area: nav;
-}
-
-img {
-  margin-bottom: .3rem;
-  margin-top: 1rem;
-}
-
-.container__book:hover img, .container__course:hover img {
-  box-shadow: -10px -8px 20px -4px rgba(148,148,148,1);
-}
-
-.container__header {
-  grid-area: header;
-  width: 80%;
-  height: 5vh;
-}
-
-/* general */
-.container__books, .container__courses {
-  grid-area: books;
-  display: grid;
-  width: 97.5%;
-  overflow: hidden;
-}
-
-.container__books__side, .container__courses__side {
-  grid-column: span 1;
-  max-width: 95%;
-}
-
-.container__book, .container__course {
-  grid-column: span 1;
+/* buttons */
+.btn {
+  margin: .5rem;
+  padding: .35rem 1rem;
+  display: inline-block;
+  color: var(--color-text-default);
+  border: 2px solid var(--color-text-default);
+  border-radius: 25px;
   text-align: center;
-  margin: 0;
-  padding: 0 1.5rem;
-  height: 100%;
 }
 
-.container__course, .holderCourse img {
-  width: 100%;
-}
-
-.holder img {
-  width: 7vw;
-}
-
-.summary, .author, .year, .summary__course, .container__course .btn {
-  display: none;
-}
-
-.container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn{
+.btn__lang {
   display: block;
-  font-size: .8rem;
   text-align: center;
 }
 
-#container__books-parent, #container__courses-parent {
-  grid-column: span 3;
-  position: relative;
-  width: 98%;
+a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
+  color: var(--color-text-special);
+  border-color: var(--color-text-special);
 }
 
-#container__books-parent::after, #container__courses-parent::after, #container__books-parent::before, #container__courses-parent::before {
-  z-index: 1;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -1px;
-  bottom: 0;
-  width: 15%;
-  background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
-}
-
-#container__books-parent::before, #container__courses-parent::before {
-  left: -1px;
-  right: auto;
-  transform: rotate(180deg);
-  width: 20%;
-}
-
-/* books */
-.container__books__side p {
-  margin-bottom: 2rem;
-}
-
-.container__books__content {
-  grid-column: span 3;
-  display: flex;
-  text-align: center;
-  width: 97%;
-  overflow: scroll;
-  position: relative;
-  padding-left: 7.5rem;
-}
-
-.container__book .holder {
-  width: 100%;
-}
-
-.link__book, .link__course {
-  display: grid;
-  width: 7.5em;
-}
-.link__course {
-  width: 10rem;
-}
-
-.container__books__content::-webkit-scrollbar {
-  display: none;
-}
-
-/* courses */
-.container__courses__content {
-  grid-column: span 3;
-  display: flex;
-  grid-gap: .8rem;
-  text-align: center;
-  overflow: scroll;
-  width: 97%;
-  padding-left: 7.5rem;
-}
-
-.container__courses__content::-webkit-scrollbar {
-  display: none;
+.container__books__side .btn {
+  margin-top: 5%;
 }
 
 /* header, menu, footer */
@@ -218,29 +123,138 @@ img {
   float: left;
 }
 
-/* styles */
-
-.btn {
-  margin: .5rem;
-  padding: .35rem 1rem;
-  display: inline-block;
-  color: var(--color-text-default);
-  border: 2px solid var(--color-text-default);  border-radius: 25px;
-  text-align: center;
+/* grid general */
+.container__header {
+  grid-area: header;
+  width: 100%;
+  height: 10vh;
+  margin-bottom: 2rem;
 }
 
-.btn__lang {
+.container__books, .container__courses {
+  grid-area: books;
+  display: flex;
+  flex-direction: column;
+  width: 97vw;
+  overflow: hidden;
+  margin-top: 7.5%;
+}
+
+.container__book, .container__course {
+  grid-column: span 1;
+  text-align: center;
+  margin: 0;
+  padding: 0 1.5rem;
+  height: 100%;
+}
+
+/* container side */
+.container__books__side, .container__courses__side {
+  grid-area: top;
+  grid-column: span 4;
+  max-width: 95%;
+}
+
+.container__side__subtitle {
+  margin-bottom: 2rem;
+}
+
+/* container content */
+.container__books__content {
+  grid-area: content;
+  grid-column: span 4;
+  display: flex;
+  text-align: center;
+  width: 99%;
+  overflow: scroll;
+  position: relative;
+  padding-left: 7.5rem;
+}
+
+.container__courses__content {
+  grid-area: content;
+  grid-column: span 3;
+  display: flex;
+  text-align: center;
+  overflow: scroll;
+  width: 100vw;
+  padding-left: 7.5rem;
+}
+
+.container__books__content::-webkit-scrollbar, .container__courses__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* container small */
+.holder, .holderCourse {
+  height: 20em;
+}
+
+.container__book .holder {
+  width: 100%;
+}
+
+.container__course, .holderCourse img {
+  width: 100%;
+}
+
+.holder img {
+  width: 100%;
+}
+
+.link__book {
+  display: grid;
+  width: 7.5em;
+}
+
+.link__course {
+  display: grid;
+  width: 10rem;
+}
+
+/* states */
+.summary, .author, .year, .summary__course, .container__course .btn {
+  display: none;
+}
+
+.container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn {
   display: block;
+  font-size: .8rem;
   text-align: center;
 }
 
-a:hover, a:focus, .btn:hover, .btn:focus {
-  color: var(--color-text-special);
-  border-color: var(--color-text-special);
+.container__book:focus .summary, .container__book:focus .author, .container__book:focus .year, .container__course:focus .summary__course, .container__course:focus .btn {
+  display: block;
+  font-size: .8rem;
+  text-align: center;
 }
 
-.container__books__side .btn {
-  margin-top: 5%;
+.container__book:hover img, .container__book:focus img, .container__course:hover img, .container__course:focus img {
+  box-shadow: -10px -8px 20px -4px rgba(148,148,148,1);
+}
+
+/* styles */
+.container__books-parent, .container__courses-parent {
+  grid-column: span 3;
+  position: relative;
+  width: 97vw;
+}
+
+.container__books-parent::after, .container__courses-parent::after, .container__books-parent::before, .container__courses-parent::before {
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: 13%;
+  background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
+}
+
+.container__books-parent::before, .container__courses-parent::before {
+  left: -2px;
+  right: auto;
+  transform: rotate(180deg);
 }
 
 /* letters */
@@ -271,7 +285,7 @@ a:hover, a:focus, .btn:hover, .btn:focus {
 }
 
 /* bibliotheek */
-.b:hover, .ii:hover, .l:hover, .iii:hover, .ooo:hover, .t:hover, .h:hover, .ee:hover, .eee:hover, .k:hover {
+.b:hover, .ii:hover, .l:hover, .ooo:hover, .t:hover, .h:hover, .ee:hover, .k:hover {
   transform: rotateY(-60deg);
   display: inline-block;
 }
@@ -282,7 +296,7 @@ a:hover, a:focus, .btn:hover, .btn:focus {
   display: inline-block;
 }
 
-/* loading state */
+/* states */
 #spinner {
   grid-column: span 4;
   width: 10rem;
@@ -327,164 +341,34 @@ a:hover, a:focus, .btn:hover, .btn:focus {
  }
 }
 
-/* queries */
 @media (max-width: 58em) {
   main {
+    display: grid;
     grid-template-areas:
     "header header header"
     "books books books";
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, 32%);
     grid-template-rows: auto;
-    height: 100%;
+    grid-gap: 1rem;
   }
 
   h1 {
-    font-size: 4rem;
-    transition: font-size .2s ease-out;
-  }
-
-  #container__books-parent, #container__courses-parent {
-    position: relative;
-    width: 90%;
-  }
-
-  #container__books-parent::after, #container__courses-parent::after, #container__books-parent::before, #container__courses-parent::before {
-    z-index: 1;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 1px;
-    bottom: 0;
-    width: 5%;
-    background: linear-gradient(to left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 0) 100%);
-  }
-
-  #container__books-parent::before, #container__courses-parent::before {
-    left: -1px;
-    right: auto;
-    transform: rotate(180deg);
-    width: 5%;
-  }
-
-  .container__header {
-    margin-bottom: 2.5rem;
-  }
-
-  .container__books, .container__courses {
-    grid-area: books;
-    display: flex;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .container__books__content, .container__courses__content {
-    grid-column: span 2;
-    display: flex ;
-    position: relative;
-    padding-left: 3rem;
-    overflow: scroll;
-
-  }
-
-  .container__book {
-    display: grid;
-    grid-template-columns: 1fr, 2fr;
-    grid-row: auto;
-  }
-
-  .holder img {
-    grid-column: span 1;
-  }
-
-  .container__books__side, .container__courses__side {
-    width: 85%;
-  }
-
-  /* letters */
-  /* title */
-  .v:hover, .r:hover, .o:hover, .u:hover, .i:hover, .oo:hover, .m:hover, .e:hover, .d:hover, .mm:hover, .s:hover {
-    transform: none;
-    display: inline;
-  }
-
-  /* bibliotheek */
-  .b:hover, .ii:hover, .l:hover, .iii:hover, .ooo:hover, .t:hover, .h:hover, .ee:hover, .eee:hover, .k:hover {
-    transform: none;
-    display: inline;
-  }
-
-  /* curcussen */
-  .c:hover, .uu:hover, .rr:hover, .ss:hover, .uuu:hover, .sss:hover, .ssss:hover, .eeee:hover, .n:hover {
-    transform: none;
-    display: inline;
-  }
-
-  .container__book:hover img, .container__course:hover img {
-    box-shadow: 0;
-  }
-
-  .summary, .author, .year, .summary__course, .container__course .btn {
-    display: inline-block;
-    font-size: .8rem;
-    text-align: left;
-
-  }
-
-  .container__book:hover .summary, .container__book:hover .author, .container__book:hover .year, .container__course:hover .summary__course, .container__course:hover .btn{
-    display: inline-block;
-    font-size: .8rem;
-    text-align: center;
+    font-size: 4.8rem;
   }
 }
 
 @media (max-width: 38em) {
   main {
+    display: grid;
     grid-template-areas:
-    "nav"
-    "header"
-    "books";
-    grid-template-columns: repeat(1, auto);
+    "header header"
+    "books books";
+    grid-template-columns: repeat(2, 50%);
     grid-template-rows: auto;
+    grid-gap: 1rem;
   }
 
   h1 {
     font-size: 3rem;
-    transition: font-size .2s ease-out;
   }
-
-  .btn__lang {
-    display: inline-block;
-  }
-
-  .container__books, .container__courses {
-    grid-area: books;
-    display: grid;
-    grid-template-columns: 92.5vw;
-  }
-
-  .container__books__side, .container__courses__side {
-    width: 90%;
-  }
-
-  .container__books__content, .container__courses__content {
-    grid-template-columns: 90vw;
-  }
-
-  .container__book, .container__course {
-    grid-column: span 1;
-  }
-
-  .link__book {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .link__book img {
-    grid-column: 20vw;
-  }
-
-  .link__book h3 {
-    text-align: left;
-  }
-
 }

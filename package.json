@@ -23,6 +23,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
+    "gulp": "^4.0.0",
     "node": "^11.11.0",
     "nodemon": "^1.18.10",
     "oba-wrapper": "github:maanlamp/OBA-wrapper"
