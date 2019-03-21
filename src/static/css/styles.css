@@ -148,6 +148,52 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
   height: 100%;
 }
 
+.detailBook, .detailCourse {
+  grid-column: span 4;
+  display: flex;
+  margin-right: 15%;
+}
+
+.left {
+  margin-left: 1rem;
+  margin-right: 3rem;
+}
+
+.titleDetail {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailCourseCover {
+  width: 25vw;
+}
+
+.detailBookCover {
+  width: 15vw;
+}
+
+.authorDetail {
+  font-size: 1.25rem;
+  color: var(--color-text-special);
+}
+
+.headingDetail {
+  margin-top: 1.5rem;
+  margin-left: .5rem;
+}
+
+.summaryDetail {
+  width: 75%;
+}
+
+.descrDetail {
+  margin-bottom: 1.5rem;
+}
+
+.linkDetail {
+  margin-top: 1.5rem;
+}
+
 /* container side */
 .container__books__side, .container__courses__side {
   grid-area: top;
@@ -199,7 +245,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
 }
 
 .holder img {
-  width: 100%;
+  width: 85%;
 }
 
 .link__book {

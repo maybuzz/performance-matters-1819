@@ -8,16 +8,13 @@
     <% include partials/header.ejs %>
 
     <section class="detailCourse">
-      <ul>
-        <li><a href="/" class="btn">terug</a></li>
-      </ul>
       <div class="left">
-        <img src="<%= course[0].cover %>" alt="course cover">
-        <a href="<%= course[0].link %>" class="btn">naar de website</a>
+        <img class="detailCourseCover" src="<%= course[0].cover %>" alt="course cover">
       </div>
       <div class="right content">
         <h2 class="titleDetail"><%= course[0].title %></h2>
         <p class="summaryDetail"><%= course[0].summary %></p>
+        <a class="btn linkDetail" href="<%= course[0].link %>" class="btn">naar de website</a>
       </div>
     </section>
 
