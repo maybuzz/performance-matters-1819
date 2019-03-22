@@ -3,7 +3,7 @@
 ## Summary
 Part 2 of the "oba for dummies" app. Adding performance and other fixes.
 
-![performance oba app](/img/performance-compressed.png)
+![performance oba app](/img/localhost-audits2.png)
 
 ## Table of contents
 1. [Live demo](#Live-demo)
