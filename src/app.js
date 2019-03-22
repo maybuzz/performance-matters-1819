@@ -3,9 +3,11 @@
 const fs = require('fs')
 const ejs = require('ejs')
 const express = require('express')
+const compression = require('compression')
 const app = express()
 
 app
+  .use(compression())
   .use(express.static('static'))
   .set('view engine', 'ejs')
   .set('views', 'views')

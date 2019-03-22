@@ -20,12 +20,16 @@
   },
   "homepage": "https://github.com/maybuzz/performance-matters-1819#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
-    "gulp": "^4.0.0",
     "node": "^11.11.0",
     "nodemon": "^1.18.10",
     "oba-wrapper": "github:maanlamp/OBA-wrapper"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1"
   }
 }
