@@ -6,19 +6,19 @@ Part 2 of the "oba for dummies" app. Adding performance and other fixes.
 ![performance oba app](/img/localhost-audits2.png)
 
 ## Table of contents
-1. [Live demo](#Live-demo)
-2. [Install](#Install)
-3. [Features](#Features)
-3. [Performance](#Performance)
+- [Live demo](#Live-demo)
+- [Install](#Install)
+- [Features](#Features)
+- [Performance](#Performance)
   - [Before](#Before)
   - [After](#After)
-5. [Audits](#Audits)
+- [Audits](#Audits)
   - [Before](#Before)
   - [After](#After)
-4. [Client side vs Server side](#Cient-side-vs-Server-side)
-5. [Audits](#Audits)
-8. [To-do](#To-do)
-9. [Resources](#Resources)
+- [Client side vs Server side](#Cient-side-vs-Server-side)
+- [Audits](#Audits)
+- [To-do](#To-do)
+- [Resources](#Resources)
 
 ## Live demo
 [Click here](https://maybuzz.github.io/...) to see my live demo.
