@@ -135,7 +135,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
   grid-area: books;
   display: flex;
   flex-direction: column;
-  width: 97vw;
+  width: 80vw;
   overflow: hidden;
   margin-top: 7.5%;
 }
@@ -399,7 +399,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
   }
 
   h1 {
-    font-size: 4.8rem;
+    font-size: 4.5rem;
   }
 }
 
