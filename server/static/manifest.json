@@ -1,0 +1,17 @@
+{
+  "name": "OBA for dummies",
+  "short_name": "for dummies",
+  "icons": [{
+    "src": "img/icon_240x240.gif",
+      "sizes": "240x240",
+      "type": "image/gif"
+    }, {
+      "src": "img/icon_450x450.gif",
+      "sizes": "450x450",
+      "type": "image/gif"
+    }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3E4EB8",
+  "theme_color": "#2F3BA2"
+}

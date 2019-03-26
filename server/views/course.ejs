@@ -9,7 +9,7 @@
 
     <section class="detailCourse">
       <div class="left">
-        <img class="detailCourseCover" src="<%= course[0].cover %>" alt="course cover">
+        <img class="detailCourseCover" src="<%= course[0].cover %>" alt="course cover" height="300px">
       </div>
       <div class="right content">
         <h2 class="titleDetail"><%= course[0].title %></h2>
@@ -19,6 +19,8 @@
     </section>
 
   </main>
+
+<% include partials/tail.ejs %>
 
 </body>
 </html>

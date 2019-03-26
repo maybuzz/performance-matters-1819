@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
 const ejs = require('ejs')
 const express = require('express')
 const compression = require('compression')
@@ -8,9 +9,10 @@ const app = express()
 
 app
   .use(compression())
-  .use(express.static('static'))
+  .use((req, res, next) => { res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60);  next() })
+  .use(express.static(path.join(__dirname, 'static')))
   .set('view engine', 'ejs')
-  .set('views', 'views')
+  .set('views', path.join(__dirname, 'views'))
   .get('/', index)
   .get('/books', index)
   .get('/courses', overviewCourses)
@@ -19,9 +21,9 @@ app
   .listen(3333)
 
 function index(req, res, err) {
-  console.log("index")
+  console.log('index')
 
-  fs.readFile('static/data/bookData.json', 'utf8', (err, books) => {
+  fs.readFile('server/static/data/bookData.json', 'utf8', (err, books) => {
     if (err) {
       console.log('i fail')
       console.error(err)
@@ -36,15 +38,15 @@ function index(req, res, err) {
         books: data
       })
     } catch (err) {
-      console.error("index error:", err)
+      console.error('index error: ', err)
     }
   })
 }
 
 function overviewCourses(req, res, err) {
-  console.log("overview course")
+  console.log('overview course')
 
-  fs.readFile('static/data/courseData.json', 'utf8', (err, courses) => {
+  fs.readFile('server/static/data/courseData.json', 'utf8', (err, courses) => {
     if (err) {
       console.log('i fail')
       console.error(err)
@@ -59,18 +61,18 @@ function overviewCourses(req, res, err) {
         courses: data
       })
     } catch (err) {
-      console.error("overviewCourses error:", err)
+      console.error('overviewCourses error: ', err)
     }
   })
 
 }
 
 function detailBook(req, res, err) {
-  console.log("detail course")
+  console.log('detail course')
 
   const frabl = req.params.frabl
 
-  const data = fs.readFile('static/data/bookData.json', 'utf8', (err, books) => {
+  const data = fs.readFile('server/static/data/bookData.json', 'utf8', (err, books) => {
     if (err) {
       console.log('i fail')
       console.error(err)
@@ -96,11 +98,11 @@ function detailBook(req, res, err) {
 }
 
 function detailCourse(req, res, err) {
-  console.log("detail course")
+  console.log('detail course')
 
   const frabl = req.params.frabl
 
-  const data = fs.readFile('static/data/courseData.json', 'utf8', (err, courses) => {
+  const data = fs.readFile('server/static/data/courseData.json', 'utf8', (err, courses) => {
     if (err) {
       console.log('i fail')
       console.error(err)
@@ -118,7 +120,6 @@ function detailCourse(req, res, err) {
         course: detailCourse
       })
 
-      console.log(detailCourse);
     } catch (err) {
       console.error(err)
     }

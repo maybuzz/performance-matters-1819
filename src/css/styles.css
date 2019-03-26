@@ -1,6 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins|Roboto');
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-display: swap;
+}
 
-@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Chelsea+Market|Finger+Paint');
+@font-face {
+  font-family: 'Cabin Sketch';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cabin Sketch Regular'), local('CabinSketch-Regular'), url(https://fonts.gstatic.com/s/cabinsketch/v12/QGYpz_kZZAGCONcK2A4bGOj8mNhNy_r-Kw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-display: swap;
+}
 
 /* colors */
 :root {
@@ -15,7 +29,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   text-decoration: none !important;
 }
 
@@ -47,6 +61,7 @@ main {
 img {
   margin-bottom: .3rem;
   margin-top: 1rem;
+  background-color: olivedrab;
 }
 
 /* text */
@@ -127,17 +142,14 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
 .container__header {
   grid-area: header;
   width: 100%;
-  height: 10vh;
-  margin-bottom: 2rem;
 }
 
 .container__books, .container__courses {
   grid-area: books;
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 95vw;
   overflow: hidden;
-  margin-top: 7.5%;
 }
 
 .container__book, .container__course {
@@ -151,7 +163,6 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
 .detailBook, .detailCourse {
   grid-column: span 4;
   display: flex;
-  margin-right: 15%;
 }
 
 .left {
@@ -245,10 +256,12 @@ a:hover, a:focus, .btn:hover, .btn:focus, .btn:active {
 }
 
 .holder img {
+  display: block;
   width: 85%;
 }
 
 .link__book {
+  text-align: -webkit-center;
   display: grid;
   width: 7.5em;
 }
