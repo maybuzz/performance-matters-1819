@@ -6,8 +6,6 @@ const postcss = require('gulp-postcss')
 gulp.task('css', () => {
   const plugins = [cssnano()]
     return gulp.src([
-      // fucks up my font loading
-      // 'src/css/bootstrap.css',
       'src/css/styles.css'
     ])
     .pipe(concat('index.css'))

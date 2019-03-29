@@ -3,7 +3,7 @@
 ## Summary
 Part 2 of the "oba for dummies" app. Adding performance and other fixes.
 
-![performance oba app](/img/localhost-audits2.png)
+![performance oba app](/img/final-audits.png)
 
 ## Table of contents
 - [Live demo](#Live-demo)
@@ -17,7 +17,7 @@ Part 2 of the "oba for dummies" app. Adding performance and other fixes.
 - [Resources](#Resources)
 
 ## Live demo
-[Click here](https://maybuzz.github.io/...) to see my live demo.
+[Click here](https://oba-for-dummies.herokuapp.com/) to see my live demo.
 
 ## Install
 To install this project you'll have to fork this repository and open your terminal
@@ -25,6 +25,9 @@ To install this project you'll have to fork this repository and open your termin
   # insert your username to this link
   # put this in your terminal to clone the repo
   git clone https://github.com/your-user-name/performance-matters-1819/
+
+  # run the following code to build the app
+  npm start
 ```
 
 ## Features
@@ -47,6 +50,19 @@ During this project I am focussing on `time to first byte` and `repeat view`.
 
 To improve time to first byte I used gulp at prestart to minify my CSS and JS. To do this I need to split the files I want to serve. When starting my server gulp takes the files from my `src` files and minifies them. After that the files will be put in my static folder. This is send to the server and served to the browser. It includes my views, my data and other static files. ll these things add to minimize the time to first byte.
 
+Code snippet from my `gulpfile.js`. To start the minify at server start I wrote a `"prestart": "gulp css && gulp js"` script in my package.json. This will start the tasks (css and js minify) wrote in my gulpfile.js
+
+```js
+gulp.task('css', () => {
+  const plugins = [cssnano()]
+    return gulp.src([
+      'src/css/styles.css'
+    ])
+    .pipe(concat('index.css'))
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('server/static/css/'))
+})
+```
 ![first localhost audits](/img/localhost-audits.png)
 ![performance oba app](/img/localhost-network.png)
 
