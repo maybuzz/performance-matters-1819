@@ -14,6 +14,7 @@ app
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .get('/', index)
+  .get('/offline', offline)
   .get('/books', index)
   .get('/courses', overviewCourses)
   .get('/books/:frabl', detailBook)
@@ -41,6 +42,10 @@ function index(req, res, err) {
       console.error('index error: ', err)
     }
   })
+}
+
+function offline(req, res, err) {
+  res.render('offline.ejs')
 }
 
 function overviewCourses(req, res, err) {

@@ -30,8 +30,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^8.0.0",
     "node": "^11.11.0",
-    "nodemon": "^1.18.10",
-    "oba-wrapper": "github:maanlamp/OBA-wrapper"
+    "nodemon": "^1.18.10"
   },
   "devDependencies": {
     "gulp": "^4.0.0",

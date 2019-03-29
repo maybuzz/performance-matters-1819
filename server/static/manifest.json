@@ -2,13 +2,13 @@
   "name": "OBA for dummies",
   "short_name": "for dummies",
   "icons": [{
-    "src": "img/icon_240x240.gif",
-      "sizes": "240x240",
-      "type": "image/gif"
+    "src": "img/speen.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }, {
-      "src": "img/icon_450x450.gif",
-      "sizes": "450x450",
-      "type": "image/gif"
+      "src": "img/speen2.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }],
   "start_url": "/",
   "display": "standalone",

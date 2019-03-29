@@ -1,8 +1,9 @@
-var CACHE_NAME = 'my-site-cache-v1'
-var urlsToCache = [
+const CACHE_NAME = 'my-site-cache-v1'
+const urlsToCache = [
   '/',
   '/books',
   '/courses',
+  '/offline',
   '/css/index.css',
   '/data/bookData.json',
   '/data/courseData.json'
@@ -13,7 +14,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Opened cache')
+        console.log('Opened caching')
         return cache.addAll(urlsToCache)
       })
   )
