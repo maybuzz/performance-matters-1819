@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/app.js",
+    "dev": "nodemon server/app.js",
+    "start": "node server/app.js",
     "prestart": "gulp css && gulp js"
   },
   "repository": {

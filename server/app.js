@@ -19,7 +19,7 @@ app
   .get('/courses', overviewCourses)
   .get('/books/:frabl', detailBook)
   .get('/courses/:frabl', detailCourse)
-  .listen(3333)
+  .listen(process.env.PORT || 3333)
 
 function index(req, res, err) {
   console.log('index')
